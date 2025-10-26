@@ -6,10 +6,10 @@ My goal is to master R by gradually building hands-on experience through small p
 
 Topics I’m Exploring
 
-Data wrangling with dplyr and tidyr
-Data visualization with ggplot2
-Working with dates and times (lubridate)
-Reading and writing data (readr, readxl)
-Basic statistics and modeling
-Creating R Markdown reports
-GitHub integration with RStudio
+- Data wrangling with dplyr and tidyr
+- Data visualization with ggplot2
+- Working with dates and times (lubridate)
+- Reading and writing data (readr, readxl)
+- Basic statistics and modeling
+- Creating R Markdown reports
+- GitHub integration with RStudio
