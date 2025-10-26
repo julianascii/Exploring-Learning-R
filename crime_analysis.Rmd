@@ -1,0 +1,59 @@
+---
+title: "Inital Analysis of Crime Data"
+output: html_notebook
+---
+
+```{r message=FALSE, warning=FALSE}
+# load packages
+library(dplyr)
+library(readr)
+library(magrittr)
+library(stringr)
+
+# initial inspection of dataset
+crime <- read_csv("crime_2020_to_present.csv")
+head(crime)
+
+glimpse(crime)
+summary(crime)
+colnames(crime)
+
+# standardize values
+names(crime) <- make.names(names(crime))
+
+```
+
+```{r}
+# check missing values
+colSums(is.na(crime))
+
+# check and delete duplicates
+sum(duplicated(crime))
+
+crime <- crime %>%
+  distinct()
+crime
+```
+
+```{r}
+colnames(crime)
+chosen_cols <- crime %>%
+  select(
+    Vict.Sex, 
+    Vict.Age, 
+    AREA.NAME
+    ) 
+head(chosen_cols, 100)
+
+adult_victims <- chosen_cols %>%
+  filter(Vict.Age > 17) %>%
+  arrange(Vict.Age)
+adult_victims
+
+age_count <- adult_victims %>%
+  filter(!is.na(Vict.Age)) %>%
+  group_by(Vict.Age) %>%
+  summarize(count = n()) %>%
+  arrange(Vict.Age)
+age_count
+```
