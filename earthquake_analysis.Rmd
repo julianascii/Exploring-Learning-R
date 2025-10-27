@@ -1,0 +1,77 @@
+---
+title: "earthquake_analysis"
+author: "Juliana Sophia Pabonita"
+---
+
+```{r message=FALSE, warning=FALSE}
+
+# load packages
+library(dplyr)
+library(readr)
+library(ggplot2)
+```
+
+```{r}
+df <- read_csv("earthquake_data_tsunami.csv")
+```
+
+
+```{r}
+# inspect the data frame
+glimpse(df)
+head(df) 
+summary(df)
+```
+
+```{r}
+
+df$tsunami <- ifelse(df$tsunami == 1, "Tsunami", "No Tsunami")
+# analyze the occurence of strong earthquakes since 2020 (magnitude 6.0-6.9)
+strong_eq_since_2020 <- df %>%
+  group_by(magnitude, Year) %>%
+  filter(magnitude > 5.9, 
+         magnitude < 7.0, 
+         Year > 2019) %>%
+  summarize(count = n(), 
+            tsunami_generating = n())
+strong_eq_since_2020
+
+# analyze the mean magnitude of earthquakes given a month + frequency
+months_mag_2020_to_present <- df %>%
+  filter(Year > 2019) %>%
+  group_by(Month) %>%
+  summarize(mean_magnitude = mean(magnitude),
+            count = n())
+months_mag_2020_to_present
+```
+
+```{r}
+# analyze if earthquakes with tsunamis have shallower depths or greater magnitudes
+tsunami_vs_no_tsunami <- df %>%
+  group_by(tsunami) %>%
+  summarize(avg_depth = mean(depth),
+            avg_magnitude = mean(magnitude))
+tsunami_vs_no_tsunami
+```
+
+```{r}
+# check for unusually deep or high-magnitude events
+anomaly <- df %>%
+  filter(magnitude >= 7.5,
+         depth >= 600)
+anomaly
+```
+
+```{r}
+# finding areas with more earthquake occurence
+viz <- ggplot(df, aes(x = longitude, 
+                      y = latitude)) +
+       geom_point(aes(color = magnitude), 
+                  alpha = 0.5) +
+       labs(title = "Recorded Magnitudes of Earthquakes",
+            subtitle = "Given a Longitude and Latitude",
+            x = "Longitude",
+            y = "Latitude",
+            color = "Magnitude")
+viz
+```
