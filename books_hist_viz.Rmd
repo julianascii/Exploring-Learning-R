@@ -8,7 +8,7 @@ library(readr)
 library(dplyr)
 library(ggplot2)
 
-# load data frame
+# read data frame
 greatest_books <- read_csv('top-hundred-books.csv')
 
 # plot data

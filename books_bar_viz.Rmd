@@ -1,0 +1,46 @@
+---
+title: "Bar Graph (s) of the Top 100 Books"
+output: html_document
+author: "Juliana Sophia Q. Pabonita"
+---
+
+```{r message = FALSE, warning = FALSE}
+# load packages
+library(dplyr)
+library(readr)
+library(ggplot2)
+```
+```{r}
+# read csv file
+books <- read_csv("top-hundred-books.csv")
+```
+```{r}
+# language distribution analysis
+table(books$Language)
+
+# vizualized version
+viz <- ggplot(books, aes(x = Language)) +
+  geom_bar(color = "pink", width = 0.7, fill = "pink") +
+  geom_text(
+    stat = "count",
+    aes(label = after_stat(count)),
+    position = position_stack(vjust = 0.5),
+    size = 3,
+    color = "black"
+  ) +
+  coord_flip() +
+  labs(
+    x = "Language",
+    y = "Number of Books",
+    title = "Language Distribution Among the Top 100 Books",
+    subtitle = "Grouped by Their Respective Authors"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold", size = 15),
+    plot.subtitle = element_text(size = 12, color = "gray40"),
+    axis.text.y = element_text(face = "bold"),
+    legend.position = "right"
+  )
+viz
+```
