@@ -1,6 +1,6 @@
 ---
 title: "Inital Analysis of Crime Data"
-
+output: html_document
 ---
 
 ```{r message=FALSE, warning=FALSE}

@@ -1,6 +1,6 @@
 ---
 title: "Histogram of the Top 100 Books"
-output: html_notebook
+output: html_document
 ---
 ```{r message=FALSE, warning=FALSE}
 # load libraries
