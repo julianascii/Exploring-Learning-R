@@ -1,0 +1,33 @@
+---
+title: "Histogram of the Top 100 Books"
+output: html_notebook
+---
+```{r message=FALSE, warning=FALSE}
+# load libraries
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+# load data frame
+greatest_books <- read_csv('top-hundred-books.csv')
+
+# plot data
+hist <- qplot(greatest_books$Ages,
+      geom='histogram',
+      binwidth = 3,  
+      main = 'Age of Top 100 Novel Authors at Publication', 
+      xlab = 'Publication Age',
+      ylab = 'Count',
+      fill=I("blue"), 
+      col=I("red"), 
+      alpha=I(.2)) +
+  geom_vline(aes(xintercept=median(greatest_books$Ages),
+                 color="median"), linetype="dashed",
+             size=1) +
+  geom_vline(aes(xintercept=mean(greatest_books$Ages),
+                 color="mean"), linetype="solid",
+             size=1) +
+  scale_color_manual(name = "statistics", values = c(median = "blue", mean = "red"))
+
+hist
+```
