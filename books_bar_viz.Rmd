@@ -32,15 +32,14 @@ viz <- ggplot(books, aes(x = Language)) +
   labs(
     x = "Language",
     y = "Number of Books",
-    title = "Language Distribution Among the Top 100 Books",
-    subtitle = "Grouped by Their Respective Authors"
+    title = "Top 100 Books",
+    subtitle = "Language Distribution"
   ) +
   theme_minimal(base_size = 13) +
   theme(
     plot.title = element_text(face = "bold", size = 15),
     plot.subtitle = element_text(size = 12, color = "gray40"),
-    axis.text.y = element_text(face = "bold"),
-    legend.position = "right"
+    axis.text.y = element_text(face = "bold")
   )
 viz
 ```
