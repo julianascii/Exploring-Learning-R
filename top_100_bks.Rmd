@@ -49,3 +49,29 @@ viz <- ggplot(books, aes(x = Language)) +
   )
 viz
 ```
+```{r}
+# try a histogram for author's ages w measures of central tendences median and mean
+hist <- qplot(books$Ages,
+      geom='histogram',
+      binwidth = 3,  
+      main = 'Age of Top 100 Novel Authors at Publication', 
+      xlab = 'Publication Age',
+      ylab = 'Count',
+      fill=I("blue"), 
+      col=I("red"), 
+      alpha=I(.2)
+    ) +
+  geom_vline(aes(xintercept=median(books$Ages),
+                 color="median"), 
+                 linetype="dashed",
+                 size=1
+    ) +
+  geom_vline(aes(xintercept=mean(books$Ages),
+                 color="mean"), 
+                 linetype="solid",
+                 size=1
+    ) +
+  scale_color_manual(name = "statistics", values = c(median = "blue", mean = "red")
+    )
+hist
+```
