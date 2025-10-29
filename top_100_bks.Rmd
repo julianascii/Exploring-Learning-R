@@ -21,6 +21,29 @@ head(books)
 ```
 
 ```{r}
+# check if max year can be examined
+summary(books)
+table(duplicated(books$Year))
+
+# find the year with most books published
+
+yr <- books %>%
+  group_by(Year) %>%
+  summarize(count = n()) %>%
+  filter(count == max(count))
+yr
+
+bk <- books %>%
+  group_by(Year, 
+           Author, 
+           Title) %>%
+  filter(Year == 1925 |
+         Year == 1967) %>%
+  arrange(Year)
+bk
+```
+
+```{r}
 # language distribution analysis
 table(books$Language)
 
