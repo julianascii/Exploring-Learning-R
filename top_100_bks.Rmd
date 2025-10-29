@@ -4,11 +4,18 @@ author: "Juliana Sophia Pabonita"
 output: html_document
 ---
 
-```{r message=FALSE, warning=FALSE}
+```{r message = FALSE, warning = FALSE}
+# load packages
 library(dplyr)
 library(readr)
+library(ggplot2)
 ```
-```{r message=FALSE, warning=FALSE}
-authors <- read_csv("top-hundred-books.csv")
-head(authors)
+
+```{r}
+# read csv files
+books <- read_csv("top_100_books.csv")
+
+# intial inspection of the data frame
+glimpse(books)
+head(books)
 ```
