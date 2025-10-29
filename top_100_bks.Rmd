@@ -1,0 +1,14 @@
+---
+title: "Top 100 Books - Analysis"
+author: "Juliana Sophia Pabonita"
+output: html_document
+---
+
+```{r message=FALSE, warning=FALSE}
+library(dplyr)
+library(readr)
+```
+```{r message=FALSE, warning=FALSE}
+authors <- read_csv("top-hundred-books.csv")
+head(authors)
+```
