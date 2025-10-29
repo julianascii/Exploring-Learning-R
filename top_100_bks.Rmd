@@ -19,3 +19,33 @@ books <- read_csv("top_100_books.csv")
 glimpse(books)
 head(books)
 ```
+
+```{r}
+# language distribution analysis
+table(books$Language)
+
+# vizualized version
+viz <- ggplot(books, aes(x = Language)) +
+  geom_bar(color = "pink", width = 0.7, fill = "pink") +
+  geom_text(
+    stat = "count",
+    aes(label = after_stat(count)),
+    position = position_stack(vjust = 0.5),
+    size = 3,
+    color = "black"
+  ) +
+  coord_flip() +
+  labs(
+    x = "Language",
+    y = "Number of Books",
+    title = "Top 100 Books",
+    subtitle = "Language Distribution"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold", size = 15),
+    plot.subtitle = element_text(size = 12, color = "gray40"),
+    axis.text.y = element_text(face = "bold")
+  )
+viz
+```
