@@ -47,10 +47,16 @@ bk <- books %>%
   arrange(Year)
 bk
 
-# identify at what age on average these books were puclished
+# identify at what age on average these books were published
 bk_age <- bk %>%
   summarize(mean(Ages))
 bk_age
+
+# identify at what age the books were published
+bk_top_20 <- books %>%
+  filter(Rank < 20)
+top_20_avg_age <- mean(bk_top_20$Ages)
+top_20_avg_age
 ```
 
 ```{r}
