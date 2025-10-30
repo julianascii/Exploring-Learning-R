@@ -21,6 +21,10 @@ head(books)
 ```
 
 ```{r}
+# rename first column (optional)
+books <- books %>%
+  rename(Rank = "...1")
+
 # check if max year can be examined
 summary(books)
 table(duplicated(books$Year))
