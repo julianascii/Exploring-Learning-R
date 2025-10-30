@@ -42,6 +42,9 @@ bk <- books %>%
          Year == 1967) %>%
   arrange(Year)
 bk
+
+# identify at what age on average these books were puclished
+
 ```
 
 ```{r}
