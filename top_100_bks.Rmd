@@ -37,7 +37,7 @@ yr <- books %>%
   filter(count == max(count))
 yr
 
-# identify which books these are
+# identify which books these are (optional)
 bk <- books %>%
   group_by(Year, 
            Author, 
@@ -48,7 +48,9 @@ bk <- books %>%
 bk
 
 # identify at what age on average these books were puclished
-
+bk_age <- bk %>%
+  summarize(mean(Ages))
+bk_age
 ```
 
 ```{r}
