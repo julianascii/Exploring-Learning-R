@@ -31,7 +31,7 @@ range(books$Year)
 books <- books %>%
   rename(Rank = "...1")
 
-# check if max year can be examined and find year with most books publlished
+# check if max year can be examined & find year with most books publlished
 table(duplicated(books$Year))
 
 yr <- books %>%
