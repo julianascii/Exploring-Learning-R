@@ -84,4 +84,10 @@ table(df$Year, df$Month)
 # mean, median, min, max for magnitude and depth
 mean(df$magnitude)
 median(df$magnitude)
+min(df$magnitude)
+max(df$magnitude)
+mean(df$depth)
+median(df$depth)
+min(df$depth)
+max(df$depth)
 ``` 
