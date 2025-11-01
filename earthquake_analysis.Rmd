@@ -24,6 +24,17 @@ summary(df)
 ```
 
 ```{r}
+# analyze relationships
+# determine if deeper earthquakes are generally weaker
+d_vs_m_viz <- ggplot(df, aes(x = depth, y = magnitude)) +
+              geom_point(alpha = 0.5) +
+              labs(title = "Depth vs Magnitude",
+                   x = "Depth of the Earthquake",
+                   y = "Magnitude of the Earthquake")
+d_vs_m_viz
+```
+
+```{r}
 
 df$tsunami <- ifelse(df$tsunami == 1, "Tsunami", "No Tsunami")
 
