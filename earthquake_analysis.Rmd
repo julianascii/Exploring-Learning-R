@@ -24,8 +24,20 @@ summary(df)
 ```
 
 ```{r}
+# analyze relationships
+# determine if deeper earthquakes are generally weaker
+d_vs_m_viz <- ggplot(df, aes(x = depth, y = magnitude)) +
+              geom_point(alpha = 0.5) +
+              labs(title = "Depth vs Magnitude",
+                   x = "Depth of the Earthquake",
+                   y = "Magnitude of the Earthquake")
+d_vs_m_viz
+```
+
+```{r}
 
 df$tsunami <- ifelse(df$tsunami == 1, "Tsunami", "No Tsunami")
+
 # analyze the occurence of strong earthquakes since 2020 (magnitude 6.0-6.9)
 strong_eq_since_2020 <- df %>%
   group_by(magnitude, Year) %>%
@@ -74,4 +86,28 @@ viz <- ggplot(df, aes(x = longitude,
             y = "Latitude",
             color = "Magnitude")
 viz
+```
+
+```{r}
+# determine earthquake frequency per year and month
+table(df$Year, df$Month)
+
+# earthquake counts by month
+ggplot(df, aes(x = Month, y = mmi)) + geom_boxplot()
+
+# average magnitude per month or year
+ggplot(df, aes(x = Month, y = Year)) + 
+       geom_point(aes(color = magnitude), 
+                  alpha = 0.3) +
+       labs(title = "Magnitudes per Month in a Year")
+
+# mean, median, min, max for magnitude and depth
+mean(df$magnitude)
+median(df$magnitude)
+min(df$magnitude)
+max(df$magnitude)
+mean(df$depth)
+median(df$depth)
+min(df$depth)
+max(df$depth)
 ```
