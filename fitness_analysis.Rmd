@@ -1,6 +1,6 @@
 ---
 title: "fitness_analysis"
-author: "Juliana Sophia Q. Pabonita"
+author: "julianascii"
 output: html_document
 ---
 
