@@ -57,7 +57,3 @@ print(paste("The median number of steps acocmplished by the participants joining
 print(paste("The median sleeping hours of the participants joining the program is", median_sleep_hours, "hours."))
 print(paste("The median weight (in kilograms) of the participants joining the program is", median_weight, "kilograms."))
 ```
-
-```{r}
-
-```
