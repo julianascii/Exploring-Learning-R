@@ -1,6 +1,6 @@
 ---
 title: "Top 100 Books - Analysis"
-author: "Juliana Sophia Pabonita"
+author: "julianascii"
 output: html_document
 ---
 
@@ -92,7 +92,7 @@ viz <- ggplot(books, aes(x = Language)) +
 viz
 ```
 ```{r}
-# try a histogram for author's ages w measures of central tendences median and mean
+# try a histogram for author's ages w measures of central tendencies median and mean
 hist <- qplot(books$Ages,
       geom='histogram',
       binwidth = 3,  
