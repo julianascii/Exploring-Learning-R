@@ -83,7 +83,7 @@ act_type
 viz1 <- ggplot(fitness, aes(x = duration_min,
                             y = calories_burned)) +
         geom_point(aes(color = weight_kg), 
-                   alpha = 0.5) +  
+                   alpha = 1) +  
         geom_smooth() +
         labs(title = "Duration of Workout VS Calories Burned",
              subtitle = "Considering Weight in Kilograms",
