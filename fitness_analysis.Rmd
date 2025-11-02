@@ -70,10 +70,29 @@ age_1 <- fitness %>%
   filter(age < 18) %>%
   summarize(count = n())
 age_1
+
+act_type <- fitness %>%
+  group_by(activity_type) %>%
+  summarize(count = n())
+act_type
 ```
 
 ```{r}
 # make vizualizations
 
-viz1 <- ggplot(fitness, )
+viz1 <- ggplot(fitness, aes(x = duration_min,
+                            y = calories_burned)) +
+        geom_point(aes(color = weight_kg), 
+                   alpha = 0.5) +  
+        labs(title = "Duration of Workout VS Calories Burned",
+             subtitle = "Considering Weight in Kilograms",
+             x = "Duration of Workout", 
+             y = "Calories Burned",
+             color = "Weight (Kg)"
+             ) +
+        theme(
+            plot.title = element_text(face = "bold", size = 15),
+            plot.subtitle = element_text(size = 13, color = "gray40")
+        )
+viz1
 ```
