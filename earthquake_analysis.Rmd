@@ -1,6 +1,6 @@
 ---
 title: "earthquake_analysis"
-author: "Juliana Sophia Pabonita"
+author: "julianascii"
 ---
 
 ```{r message=FALSE, warning=FALSE}
