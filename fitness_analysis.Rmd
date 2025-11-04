@@ -19,6 +19,8 @@ fitness <- read_csv("fitness_dataset.csv")
 glimpse(fitness)
 head(fitness)
 summary(fitness)
+
+fitness <- distinct(fitness)
 ```
 
 ```{r}
