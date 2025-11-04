@@ -84,11 +84,12 @@ viz1 <- ggplot(fitness, aes(x = duration_min,
         geom_point(aes(color = weight_kg), 
                    alpha = 1) +  
         geom_smooth() +
-        labs(title = "Duration of Workout VS Calories Burned",
-             subtitle = "Considering Weight in Kilograms",
-             x = "Duration of Workout", 
-             y = "Calories Burned",
-             color = "Weight (Kg)"
+        labs(
+          title = "Duration of Workout VS Calories Burned",
+          subtitle = "Considering Weight in Kilograms",
+          x = "Duration of Workout", 
+          y = "Calories Burned",
+          color = "Weight (Kg)"
              ) +
         theme_minimal(base_size = 13) +
         theme(
