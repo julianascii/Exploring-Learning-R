@@ -79,7 +79,6 @@ act_type
 
 ```{r}
 # make vizualizations
-
 viz1 <- ggplot(fitness, aes(x = duration_min,
                             y = calories_burned)) +
         geom_point(aes(color = weight_kg), 
@@ -93,13 +92,12 @@ viz1 <- ggplot(fitness, aes(x = duration_min,
              ) +
         theme_minimal(base_size = 13) +
         theme(
-            plot.title = element_text(face = "bold", size = 15),
-            plot.subtitle = element_text(size = 13, color = "gray40")
-        )
+          plot.title = element_text(face = "bold", size = 15),
+          plot.subtitle = element_text(size = 13, color = "gray40")
+             )
 viz1
 
 # for previous analyses
-
 viz2 <- ggplot(fitness, aes(x = activity_type)) +
         geom_bar(color = "darkgreen",
                  width = 0.7,
@@ -124,4 +122,6 @@ viz2 <- ggplot(fitness, aes(x = activity_type)) +
           axis.text.x = element_text(size = 10)
         )
 viz2
+
+
 ```
