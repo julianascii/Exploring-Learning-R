@@ -123,6 +123,4 @@ viz2 <- ggplot(fitness, aes(x = activity_type)) +
           axis.text.x = element_text(size = 10)
         )
 viz2
-
-
 ```
