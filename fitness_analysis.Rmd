@@ -98,7 +98,7 @@ viz1 <- ggplot(fitness, aes(x = duration_min,
         )
 viz1
 
-# vizualizations for previous analyses
+# for previous analyses
 
 viz2 <- ggplot(fitness, aes(x = activity_type)) +
         geom_bar(color = "darkgreen",
