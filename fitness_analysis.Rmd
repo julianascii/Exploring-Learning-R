@@ -25,13 +25,13 @@ fitness <- distinct(fitness)
 
 ```{r}
 # average and median values of the program
-avg_age <- mean(fitness$age)
-avg_duration <- mean(fitness$duration_min)
-avg_calories_burned <- mean(fitness$calories_burned)
-avg_heart_rate <- mean(fitness$heart_rate_avg)
-avg_steps <- mean(fitness$steps)
-avg_sleep_hours <- mean(fitness$sleep_hours)
-avg_weight <- mean(fitness$weight_kg)
+avg_age <- mean(fitness$age, na.rm = TRUE)
+avg_duration <- mean(fitness$duration_min, na.rm = TRUE)
+avg_calories_burned <- mean(fitness$calories_burned, na.rm = TRUE)
+avg_heart_rate <- mean(fitness$heart_rate_avg, na.rm = TRUE)
+avg_steps <- mean(fitness$steps, na.rm = TRUE)
+avg_sleep_hours <- mean(fitness$sleep_hours, na.rm = TRUE)
+avg_weight <- mean(fitness$weight_kg, na.rm = TRUE)
 
 median_age <- median(fitness$age)
 median_duration <- median(fitness$duration_min)
